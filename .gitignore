@@ -7,3 +7,5 @@ public/
 .deploy*/
 src/_drafts
 .avoscloud/
+.DS_Store
+docs
