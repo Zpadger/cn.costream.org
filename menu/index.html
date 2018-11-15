@@ -398,7 +398,7 @@
     
     
     <li>
-      <a href="/guide/link-document.html" class="sidebar-link">文献资料</a>
+      <a href="/guide/link-document.html" class="sidebar-link check-hide">文献资料</a>
     </li>
   
 	
@@ -413,6 +413,11 @@
     </li>
   
 </ul>
+<style>
+.check-hide{
+  display:none;
+}
+</style>
 
       
     </div>
@@ -563,7 +568,7 @@
     
     
     <li>
-      <a href="/guide/link-document.html" class="sidebar-link">文献资料</a>
+      <a href="/guide/link-document.html" class="sidebar-link check-hide">文献资料</a>
     </li>
   
 	
@@ -578,6 +583,11 @@
     </li>
   
 </ul>
+<style>
+.check-hide{
+  display:none;
+}
+</style>
 
     
   
@@ -636,44 +646,7 @@
       FastClick.attach(document.body)
     }, false)
   </script>
-  <script>
-    var body = document.querySelector('body')
-    var oldTime =new Date(parseInt(localStorage.getItem("checkCache")))
-    var time = Date.now() - oldTime
-    if (time < 20*60*1000) {  
-      // 20分钟内免密
-      body.style.filter = "none"
-    }
-    else {
-      check()
-    }
-    function check() {
-      var person = prompt("网站内容维护中,审核人员请输入密码(通过后20分钟内免密):");
-      if (!person) {
-
-      }
-      else if (validate(person)) {
-        body.style.filter = "none"
-        localStorage.setItem("checkCache", Date.now())
-      } else {
-        alert("密码错误,请重新输入!")
-        check();
-      }
-    }
-    function validate(str) {
-      str = parseInt(str)
-      if (str > 10000) {
-        var i = 2;
-        for (i = 2; i * i < str; i++) {
-          if (str % i == 0) {
-            return false
-          }
-        }
-        return true
-      }
-      return false
-    }
-  </script>
+  <script src="/js/CHECK.js"></script>
 </body>
 
 </html>
